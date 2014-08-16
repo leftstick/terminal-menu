@@ -109,13 +109,13 @@ Menu.prototype.jump = function (name) {
 };
 
 Menu.prototype.close = function () {
-    process.stdin.setRawMode(false);
     process.stdin.removeListener('data', this._ondata);
     this.charm.cursor(true);
     this.charm.display('reset');
     this.charm.position(1, this.y + 1);
     this.charm.end();
     process.stdin.pause();
+    process.stdin.setRawMode(false);
 };
 
 Menu.prototype.reset = function () {
